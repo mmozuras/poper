@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.files         = Dir.glob('{lib}/**/*') + %w[LICENSE README.md]
   s.test_files    = `git ls-files -- {spec}/*`.split("\n")
   s.require_paths = ['lib']
+  s.executables << 'poper'
 
   s.add_dependency 'rugged', '~> 0.19.0'
   s.add_dependency 'thor', '~> 0.18.0'
