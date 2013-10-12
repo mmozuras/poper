@@ -1,2 +1,2 @@
-module Poper
-end
+require 'rugged'
+require 'poper/runner'
