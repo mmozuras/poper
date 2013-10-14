@@ -14,7 +14,7 @@ module Poper
 
         context 'non-capitalized message' do
           let(:message) { 'implement that feature' }
-          it { should == 'Commit message should start with a capital letter' }
+          it { should_not be_nil }
         end
       end
     end
