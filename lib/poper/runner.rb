@@ -1,4 +1,3 @@
-require 'pry'
 module Poper
   class Runner
     def initialize(commit, repo_path = '.')
