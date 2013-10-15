@@ -8,7 +8,7 @@ module Poper
 
       context 'first commit' do
         let(:commit) { '85ae779' }
-        its(:count) { should == 2 }
+        its(:count) { should == 3 }
       end
 
       context 'head commit' do
