@@ -1,3 +1,5 @@
+require 'ostruct'
+
 module Poper
   class Runner
     def initialize(commit, repo_path = '.')
@@ -16,7 +18,7 @@ module Poper
     def check(commit)
       rules.map do |rule|
         result = rule.check(commit.message)
-        "#{commit.oid[0..6]}: #{result}" if result
+        OpenStruct.new(commit: commit.oid, message: result) if result
       end
     end
 

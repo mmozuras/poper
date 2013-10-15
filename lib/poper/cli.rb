@@ -8,7 +8,9 @@ module Poper
     desc 'exec COMMIT', 'Run Poper'
 
     def exec(commit)
-      puts Runner.new(commit).run
+      Runner.new(commit).run.each do |message|
+        puts "#{message.commit[0..6]}: #{message.message}"
+      end
     end
 
     desc 'version', 'Show the Poper version'
