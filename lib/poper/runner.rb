@@ -14,7 +14,10 @@ module Poper
     private
 
     def check(commit)
-      rules.map { |rule| rule.check(commit.message) }
+      rules.map do |rule|
+        result = rule.check(commit.message)
+        "#{commit.oid[0..6]}: #{result}" if result
+      end
     end
 
     def rules
