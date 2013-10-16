@@ -10,6 +10,7 @@ task :bundle do
   sh 'bundle check || bundle install'
   sh 'gem build *.gemspec'
   sh 'gem install *.gem'
+  sh 'rm *.gem'
 end
 
 task(:default).clear
