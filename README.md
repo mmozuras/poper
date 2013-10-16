@@ -4,6 +4,7 @@ Poper makes sure that your git commit messages are well-formed
 
 [![Code Climate](https://codeclimate.com/github/mmozuras/poper.png)](https://codeclimate.com/github/mmozuras/poper)
 [![Build Status](https://travis-ci.org/mmozuras/poper.png)](https://travis-ci.org/mmozuras/poper)
+[![Gem Version](https://badge.fury.io/rb/poper.png)](http://badge.fury.io/rb/poper)
 [![Dependency Status](https://gemnasium.com/mmozuras/poper.png)](https://gemnasium.com/mmozuras/poper)
 
 ## Usage
