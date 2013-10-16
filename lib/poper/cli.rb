@@ -5,9 +5,16 @@ module Poper
     require 'poper'
     require 'poper/version'
 
-    desc 'exec COMMIT', 'Run Poper'
+    class << self
+      def is_thor_reserved_word?(word, type)
+        return false if word == 'run'
+        super
+      end
+    end
 
-    def exec(commit)
+    desc 'run COMMIT', 'Run Poper, checking commits from HEAD to it'
+
+    def run(commit)
       Runner.new(commit).run.each do |message|
         puts "#{message.commit[0..6]}: #{message.message}"
       end
