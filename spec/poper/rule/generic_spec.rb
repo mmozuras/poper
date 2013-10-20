@@ -2,9 +2,9 @@ require 'spec_helper'
 
 module Poper
   module Rule
-    describe Banned do
+    describe Generic do
       describe '#check' do
-        let(:rule) { Banned.new }
+        let(:rule) { Generic.new }
         subject { rule.check(message) }
 
         context 'non-banned commit message' do
@@ -25,6 +25,16 @@ module Poper
 
           context ' ChaNges ' do
             let(:message) { ' ChaNges' }
+            it { should_not be_nil }
+          end
+
+          context 'fix tests' do
+            let(:message) { 'fix tests' }
+            it { should_not be_nil }
+          end
+
+          context 'oops fixes' do
+            let(:message) { "oops\n\nfixes" }
             it { should_not be_nil }
           end
         end
