@@ -4,7 +4,8 @@ module Poper
   class Runner
     def initialize(commit, repo_path = '.')
       @repo = Rugged::Repository.new(repo_path)
-      @commit = @repo.lookup(commit)
+      merge_base = @repo.merge_base(commit, commit) # hack to make refs work
+      @commit = @repo.lookup(merge_base)
     end
 
     def run
