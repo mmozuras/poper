@@ -14,7 +14,7 @@ module Poper
           should == '357c6fa883bb18682770b14168708df1531c958f'
         end
         its(:'first.message') do
-          should == 'Commit message should start with a capital letter'
+          should == 'Git commit message should start with a capital letter'
         end
         its(:'last.commit') do
           should == '85ae779d5da760fb519309eefdbe59bf67240c4d'
