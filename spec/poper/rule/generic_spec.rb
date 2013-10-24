@@ -37,6 +37,11 @@ module Poper
             let(:message) { "oops\n\nfixes" }
             it { should_not be_nil }
           end
+
+          context 'oops, fix tests' do
+            let(:message) { 'oops, fix tests' }
+            it { should_not be_nil }
+          end
         end
       end
     end

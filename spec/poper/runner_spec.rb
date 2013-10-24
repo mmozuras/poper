@@ -20,7 +20,7 @@ module Poper
           should == '85ae779d5da760fb519309eefdbe59bf67240c4d'
         end
         its(:'last.message') do
-          should == 'Consider writing a more detailed, not as generic, commit summary'
+          should == 'Consider writing a more detailed, not as generic, commit message'
         end
       end
 
