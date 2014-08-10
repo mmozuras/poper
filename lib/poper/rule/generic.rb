@@ -1,7 +1,7 @@
 module Poper
   module Rule
     class Generic < Rule
-      MSG = "Consider writing a more detailed, not as generic, commit message"
+      MSG = 'Consider writing a more detailed, not as generic, commit message'
       GENERIC = %w(fix fixed fixes oops todo fixme commit changes hm hmm hmmm
                    test tests quickfix)
 
