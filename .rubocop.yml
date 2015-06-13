@@ -6,3 +6,10 @@ SignalException:
 
 TrailingComma:
   Enabled: false
+
+Style/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Style/PredicateName:
+  Exclude:
+    - 'lib/poper/cli.rb'

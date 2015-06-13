@@ -9,9 +9,7 @@ module Poper
     end
 
     def run
-      commits.map { |c| check(c) }
-             .flatten
-             .compact
+      commits.flat_map { |c| check(c) }.compact
     end
 
     private
@@ -24,7 +22,7 @@ module Poper
     end
 
     def rules
-      Rule::Rule.all.map { |rule| rule.new }
+      Rule::Rule.all.map(&:new)
     end
 
     def commits
