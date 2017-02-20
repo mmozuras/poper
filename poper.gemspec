@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
   s.summary = 'Poper makes sure that your git commit messages are well-formed'
 
   s.required_rubygems_version = '>= 1.3.6'
+  s.required_ruby_version = '>= 2.0.0'
   s.license = 'MIT'
 
   s.files = Dir.glob('{lib}/**/*') + %w(LICENSE README.md)
