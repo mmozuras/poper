@@ -29,6 +29,14 @@ module Poper
         let(:commit) { 'd0fa2b8' }
         its(:count) { should == 0 }
       end
+
+      context 'may reach to HEAD~2' do
+        let(:commit) { 'HEAD~2' }
+
+        its(:'last.commit') do
+          should == '85ae779d5da760fb519309eefdbe59bf67240c4d'
+        end
+      end
     end
   end
 end
