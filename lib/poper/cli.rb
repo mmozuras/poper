@@ -16,6 +16,9 @@ module Poper
 
     def run(commit)
       Runner.new(commit).run.each do |message|
+        # message.commit and message.message are Strings
+        # prints first 7 characteres of the commit sha1 hash
+        # followed by the associated message
         puts "#{message.commit[0..6]}: #{message.message}"
       end
     end
