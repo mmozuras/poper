@@ -1,5 +1,8 @@
+require 'support/coverage'
+
 require 'rspec'
 require 'rspec/its'
+
 require 'poper'
 
 RSpec.configure do |config|
