@@ -4,7 +4,7 @@ module Poper
       MSG = 'Git commit message summary (first line) should be 50 chars or less'
 
       def check(message)
-        MSG if message.lines.first.length > 50
+        MSG if message.lines.first.chomp.length > 50
       end
     end
   end
