@@ -1,10 +1,18 @@
 module Poper
   module Rule
     class Capitalization < Rule
-      MSG = 'Git commit message should start with a capital letter'
-
       def check(message)
-        MSG unless message[0] == message[0].capitalize
+        error_message unless message[0] == message[0].capitalize
+      end
+
+      def enabled?
+        @config.enforce_capitalized_enabled.to_s == 'true'
+      end
+
+      private
+
+      def error_message
+        'Git commit message should start with a capital letter'
       end
     end
   end

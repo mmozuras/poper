@@ -22,7 +22,11 @@ module Poper
     end
 
     def rules
-      Rule::Rule.all.map(&:new)
+      Rule::Rule.all.map do |rule_klass|
+        rule = rule_klass.new
+
+        rule if rule.enabled?
+      end.compact
     end
 
     def commits

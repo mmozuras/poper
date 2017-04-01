@@ -1,19 +1,31 @@
 module Poper
   module Rule
     class Generic < Rule
-      MSG = 'Consider writing a more detailed, not as generic, commit message'
-      GENERIC = %w(fix fixed fixes oops todo fixme commit changes hm hmm hmmm
-                   test tests quickfix)
-
       def check(message)
         words = message.scan(/[\w-]+/).compact
-        MSG if words.all? { |word| generic?(word) }
+        error_message if words.all? { |word| generic?(word) }
+      end
+
+      def enabled?
+        @config.disallow_generic_enabled.to_s == 'true'
       end
 
       private
 
       def generic?(word)
-        GENERIC.include?(word.downcase)
+        disallowed_words.include?(word.downcase)
+      end
+
+      def disallowed_words
+        if @config.disallow_generic_words.is_a? Array
+          @config.disallow_generic_words
+        else
+          @config.disallow_generic_words.split(',').map(&:strip)
+        end
+      end
+
+      def error_message
+        'Consider writing a more detailed, not as generic, commit message'
       end
     end
   end

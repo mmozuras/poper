@@ -2,9 +2,9 @@ require 'spec_helper'
 
 module Poper
   module Rule
-    describe SeventyTwoCharLimit do
+    describe CharacterLimit do
       describe '#check' do
-        let(:rule) { SeventyTwoCharLimit.new }
+        let(:rule) { CharacterLimit.new }
         subject { rule.check(message) }
 
         context 'seventy-one char line' do

@@ -1,0 +1,34 @@
+# These are the defaults.
+# Run `cp .poper.sample.yml .poper.yml`,
+# then uncomment and edit whichever rules you want to employ.
+disallow_single_word:
+  enabled: true
+
+character_limit:
+  enabled: true
+  number: 72
+
+summary_character_limit:
+  enabled: true
+  number: 50
+
+disallow_generic:
+  enabled: true
+  words:
+    - fix
+    - fixed
+    - fixes
+    - oops
+    - todo
+    - fixme
+    - commit
+    - changes
+    - hm
+    - hmm
+    - hmmm
+    - test
+    - tests
+    - quickfix
+
+enforce_capitalized:
+  enabled: true
