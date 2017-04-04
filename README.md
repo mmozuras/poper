@@ -1,7 +1,8 @@
 # Poper
 
-[![Code Climate](https://codeclimate.com/github/mmozuras/poper.png)](https://codeclimate.com/github/mmozuras/poper)
 [![Build Status](https://travis-ci.org/mmozuras/poper.png)](https://travis-ci.org/mmozuras/poper)
++[![Coverage Status](https://img.shields.io/codeclimate/coverage/github/mmozuras/poper.svg)](https://codeclimate.com/github/mmozuras/poper)
++[![Code Climate](https://codeclimate.com/github/mmozuras/poper.svg)](https://codeclimate.com/github/mmozuras/poper)
 [![Gem Version](https://badge.fury.io/rb/poper.png)](http://badge.fury.io/rb/poper)
 [![Dependency Status](https://gemnasium.com/mmozuras/poper.png)](https://gemnasium.com/mmozuras/poper)
 
