@@ -10,6 +10,10 @@ module Poper
       def self.inherited(subclass)
         @all << subclass
       end
+
+      def initialize(config = Config.new)
+        @config = config
+      end
     end
   end
 end

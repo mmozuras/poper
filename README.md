@@ -1,6 +1,5 @@
 # Poper
 
-
 [![Code Climate](https://codeclimate.com/github/mmozuras/poper.png)](https://codeclimate.com/github/mmozuras/poper)
 [![Build Status](https://travis-ci.org/mmozuras/poper.png)](https://travis-ci.org/mmozuras/poper)
 [![Gem Version](https://badge.fury.io/rb/poper.png)](http://badge.fury.io/rb/poper)
@@ -32,3 +31,49 @@ Every commit between current HEAD and specified commit will be checked.
 [tpope]: https://twitter.com/tpope
 [Poper rules]: https://github.com/mmozuras/poper/tree/master/lib/poper/rule
 [Pronto]: https://github.com/mmozuras/pronto
+
+## Configuration
+
+The behavior of Poper can be controlled via the `.poper.yml` configuration
+file. It must be placed in your project directory. A sample file, `.poper.sample.yml`, is included for easy setup.
+
+The file has the following format:
+
+```yaml
+disallow_single_word:
+  enabled: true
+
+character_limit:
+  enabled: true
+  number: 72
+
+summary_character_limit:
+  enabled: true
+  number: 50
+
+disallow_generic:
+  enabled: true
+  words:
+    - fix
+    - fixed
+    - fixes
+    - oops
+    - todo
+    - fixme
+    - commit
+    - changes
+    - hm
+    - hmm
+    - hmmm
+    - test
+    - tests
+    - quickfix
+
+enforce_capitalized:
+  enabled: true
+```
+
+All properties that can be specified via `.poper.yml`, can also be specified
+via environment variables. Their names will be the upcased path to the property.
+For example: `POPER_ENFORCE_CAPITALIZED_ENABLED` or `POPER_DISALLOW_GENERIC_WORDS`. (In the case of the latter, since environment variables don't support arrays, use a comma-separated list of words and poper will parse them appropriately.) Environment variables
+will always take precedence over values in configuration file.
