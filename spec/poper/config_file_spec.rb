@@ -74,6 +74,28 @@ module Poper
           )
         end
       end
+      context 'a value is set to false' do
+        before do
+          File.should_receive(:exist?)
+            .and_return(true)
+
+          YAML.should_receive(:load_file)
+            .and_return('summary_character_limit' => {
+                'enabled' => false,
+                'number' => 95
+              }
+            )
+        end
+
+        it do
+          should include(
+             'summary_character_limit' => {
+               'enabled' => false,
+               'number' => 95
+             }
+           )
+        end
+      end
     end
   end
 end
