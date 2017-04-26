@@ -14,8 +14,8 @@ module Poper
       },
       'disallow_generic' => {
         'enabled' => true,
-        'words' => %w(fix fixed fixes oops todo fixme commit changes hm hmm hmmm
-        test tests quickfix)
+        'words' => %w[fix fixed fixes oops todo fixme commit changes hm hmm hmmm
+                      test tests quickfix]
       },
       'enforce_capitalized' => {
         'enabled' => true

@@ -33,13 +33,13 @@ module Poper
       end
 
       context 'from config hash' do
-        let(:config_hash) { { 'disallow_generic' => { 'words' => %w(in config words should be array) } } }
-        it { should == %w(in config words should be array) }
+        let(:config_hash) { { 'disallow_generic' => { 'words' => %w[in config words should be array] } } }
+        it { should == %w[in config words should be array] }
       end
 
       context 'default' do
         let(:config_hash) { ConfigFile::EMPTY }
-        it { should == %w(fix fixed fixes oops todo fixme commit changes hm hmm hmmm test tests quickfix) }
+        it { should == %w[fix fixed fixes oops todo fixme commit changes hm hmm hmmm test tests quickfix] }
       end
     end
 

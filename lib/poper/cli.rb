@@ -24,7 +24,7 @@ module Poper
     end
 
     desc 'version', 'Show the Poper version'
-    map %w(-v --version) => :version
+    map %w[-v --version] => :version
 
     def version
       puts "Poper version #{::Poper::VERSION}"

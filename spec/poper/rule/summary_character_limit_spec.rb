@@ -18,7 +18,7 @@ module Poper
         end
 
         context 'fifty char summary with a newline' do
-          let(:msg) { "Implement that feature - really really really well\n"}
+          let(:msg) { "Implement that feature - really really really well\n" }
           it { should be_nil }
         end
       end

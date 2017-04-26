@@ -39,7 +39,7 @@ module Poper
           should include(
             'disallow_generic' => {
               'enabled' => true,
-              'words' => %w(fix fixed fixes oops todo fixme commit changes hm hmm hmmm test tests quickfix)
+              'words' => %w[fix fixed fixes oops todo fixme commit changes hm hmm hmmm test tests quickfix]
             }
           )
         end
@@ -56,13 +56,12 @@ module Poper
       context 'only summary character limit in file' do
         before do
           File.should_receive(:exist?)
-            .and_return(true)
+              .and_return(true)
 
           YAML.should_receive(:load_file)
-            .and_return('summary_character_limit' => {
-                'number' => 95
-              }
-            )
+              .and_return('summary_character_limit' => {
+                            'number' => 95
+                          })
         end
 
         it do
@@ -77,23 +76,22 @@ module Poper
       context 'a value is set to false' do
         before do
           File.should_receive(:exist?)
-            .and_return(true)
+              .and_return(true)
 
           YAML.should_receive(:load_file)
-            .and_return('summary_character_limit' => {
-                'enabled' => false,
-                'number' => 95
-              }
-            )
+              .and_return('summary_character_limit' => {
+                            'enabled' => false,
+                            'number' => 95
+                          })
         end
 
         it do
           should include(
-             'summary_character_limit' => {
-               'enabled' => false,
-               'number' => 95
-             }
-           )
+            'summary_character_limit' => {
+              'enabled' => false,
+              'number' => 95
+            }
+          )
         end
       end
     end
