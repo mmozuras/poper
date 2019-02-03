@@ -8,6 +8,7 @@ module Poper
     class << self
       def is_thor_reserved_word?(word, type)
         return false if word == 'run'
+
         super
       end
     end

@@ -19,7 +19,7 @@ module Poper
       },
       'enforce_capitalized' => {
         'enabled' => true
-      },
+      }
     }.freeze
 
     def initialize(path = '.poper.yml')
