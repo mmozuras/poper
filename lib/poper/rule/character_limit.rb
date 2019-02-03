@@ -3,7 +3,7 @@ module Poper
     class CharacterLimit < Rule
       def check(message)
         error_message if message.lines.any? do |line|
-          line.length > character_limit
+          line.chomp.length > character_limit
         end
       end
 
