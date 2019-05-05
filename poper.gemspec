@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.author = 'Mindaugas Mozūras'
   s.email = 'mindaugas.mozuras@gmail.com'
-  s.homepage = 'http://github.org/mmozuras/poper'
+  s.homepage = 'https://github.com/mmozuras/poper'
   s.summary = 'Poper makes sure that your git commit messages are well-formed'
 
   s.required_rubygems_version = '>= 1.3.6'
