@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.executables << 'poper'
 
-  s.add_runtime_dependency('rugged', '~> 0.23', '>= 0.23.0')
+  s.add_runtime_dependency('rugged', '~> 0.23.0')
   s.add_runtime_dependency('thor', '~> 0.20.0')
   s.add_development_dependency('bundler', '>= 1.10')
   s.add_development_dependency('codeclimate-test-reporter', '~> 1.0')
