@@ -10,5 +10,3 @@ require 'poper/rule/generic'
 
 require 'poper/config_file'
 require 'poper/config'
-
-require 'poper/regexp'

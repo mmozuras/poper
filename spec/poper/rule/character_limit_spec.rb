@@ -47,6 +47,22 @@ More text here!'
           end
 
           it { should_not be_nil }
+
+          context 'when message matches ignore pattern' do
+            before do
+              File.should_receive(:exist?)
+                  .and_return(true)
+
+              YAML.should_receive(:load_file)
+                  .and_return(
+                    'character_limit' => {
+                      'ignore_if_message_matches' => 'Implement that feature'
+                    }
+                  )
+            end
+
+            it { should be_nil }
+          end
         end
 
         context 'seventy-three char last line' do
@@ -57,6 +73,22 @@ Write your commit message in the imperative: "Fix bugs", not "Fixed bugs"'
           end
 
           it { should_not be_nil }
+
+          context 'when message matches ignore pattern' do
+            before do
+              File.should_receive(:exist?)
+                  .and_return(true)
+
+              YAML.should_receive(:load_file)
+                  .and_return(
+                    'character_limit' => {
+                      'ignore_if_message_matches' => 'Implement that feature'
+                    }
+                  )
+            end
+
+            it { should be_nil }
+          end
         end
       end
     end

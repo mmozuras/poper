@@ -21,7 +21,8 @@ module Poper
           should include(
             'character_limit' => {
               'enabled' => true,
-              'number' => 72
+              'number' => 72,
+              'ignore_if_message_matches' => nil
             }
           )
         end
@@ -30,7 +31,8 @@ module Poper
           should include(
             'summary_character_limit' => {
               'enabled' => true,
-              'number' => 50
+              'number' => 50,
+              'ignore_if_summary_matches' => nil
             }
           )
         end
@@ -68,7 +70,8 @@ module Poper
           should include(
             'summary_character_limit' => {
               'enabled' => true,
-              'number' => 95
+              'number' => 95,
+              'ignore_if_summary_matches' => nil
             }
           )
         end
@@ -89,7 +92,8 @@ module Poper
           should include(
             'summary_character_limit' => {
               'enabled' => false,
-              'number' => 95
+              'number' => 95,
+              'ignore_if_summary_matches' => nil
             }
           )
         end

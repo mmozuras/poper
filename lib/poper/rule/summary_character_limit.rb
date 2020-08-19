@@ -1,8 +1,15 @@
+require 'poper/rule/ignore/matching_pattern'
+
 module Poper
   module Rule
     class SummaryCharacterLimit < Rule
+      include Ignore::MatchingPattern
+
       def check(message)
-        error_message if message.lines.first.chomp.length > character_limit
+        summary = message.lines.first.chomp
+        return if should_ignore?(summary, ignore_pattern: ignore_summary_pattern)
+
+        error_message if summary.length > character_limit
       end
 
       def enabled?
@@ -17,6 +24,10 @@ module Poper
 
       def error_message
         "Git commit message summary (first line) should be #{character_limit} chars or less"
+      end
+
+      def ignore_summary_pattern
+        @config.summary_character_limit_ignore_if_summary_matches
       end
     end
   end

@@ -66,6 +66,8 @@ module Poper
       context 'and the string has double quotes' do
         subject { described_class.new("\^Look") }
 
+        # This could be considered surprising behavior. To avoid confusion, users should enclose
+        # pattern strings against which they want to match in single quotes only.
         it { should match('Look, a string') }
         it { should_not match('^Look, a string') }
       end
