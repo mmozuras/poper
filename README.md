@@ -36,7 +36,8 @@ Every commit between current HEAD and specified commit will be checked.
 ## Configuration
 
 The behavior of Poper can be controlled via the `.poper.yml` configuration
-file. It must be placed in your project directory. A sample file, `.poper.sample.yml`, is included for easy setup.
+file. It must be placed in your project directory. A sample file, `.poper.sample.yml`, is included
+for easy setup.
 
 The file has the following format:
 
@@ -74,7 +75,62 @@ enforce_capitalized:
   enabled: true
 ```
 
-All properties that can be specified via `.poper.yml`, can also be specified
-via environment variables. Their names will be the upcased path to the property.
-For example: `POPER_ENFORCE_CAPITALIZED_ENABLED` or `POPER_DISALLOW_GENERIC_WORDS`. (In the case of the latter, since environment variables don't support arrays, use a comma-separated list of words and poper will parse them appropriately.) Environment variables
-will always take precedence over values in configuration file.
+All properties that can be specified via `.poper.yml`, can also be specified via environment
+variables. Their names will be the upcased path to the property. For example:
+`POPER_ENFORCE_CAPITALIZED_ENABLED` or `POPER_DISALLOW_GENERIC_WORDS`. (In the case of the latter,
+since environment variables don't support arrays, use a comma-separated list of words and poper will
+parse them appropriately.) Environment variables will always take precedence over values in
+configuration file.
+
+## Ignoring commits
+
+```
+Merge pull request #12345 from myLongUsername/plus-a-long-feature-branch-name
+```
+The above commit message would fail the `character_limit` and `summary_character_limit` checks
+unless the number of allowed characters were set to a high number. Since the commit was
+automatically generated, it may not be desirable to check it.
+
+You can ignore commit messages matching a certain pattern by adding the following settings either to
+`character_limit` or `summary_character_limit`:
+
+```yaml
+# Adding to .poper.yml
+
+character_limit:
+  ignore_if_message_matches: '^Merge pull request'
+
+summary_character_limit:
+  ignore_if_summary_matches: '^Merge pull request'
+```
+
+```
+# Or to ENV vars
+
+POPER_CHARACTER_LIMIT_IGNORE_IF_MESSAGE_MATCHES='^Merge pull request'
+POPER_SUMMARY_CHARACTER_LIMIT_IGNORE_IF_SUMMARY_MATCHES='^Merge pull request'
+```
+
+Note there is a naming difference: `ignore_if_message_matches` versus `ignore_if_summary_matches`.
+
+With a few exceptions, the string you pass to this setting will be used to create a regular
+expression directly.
+```ruby
+Regexp.new('^Merge pull request')
+```
+
+The ignore settings are `nil` by default. If a setting is `nil` or `false`, its rule ignores no
+commit messages. If a setting is `true`, it ignores ALL commit messages (not recommended).
+
+If you want to escape a character in a pattern string, you will need to escape it twice.
+For example:
+```ruby
+string = "Look: ^ a caret"
+escaped_once = "Look: \^ a caret"
+escaped_twice = "Look: \\^ a caret"
+
+Regexp.new(escaped_once).match?(string)  # => false
+Regexp.new(escaped_twice).match?(string) # => true
+```
+This is necessary because Ruby encloses all strings in double quotes when it loads the configuration
+YAML.
