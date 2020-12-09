@@ -32,7 +32,7 @@ module Poper
     def commits
       @commits ||= begin
         walker.reset
-        walker.push(@repo.last_commit)
+        walker.push(@repo.last_commit.oid)
         walker.take_while { |c| c.oid != @commit.oid } << @commit
       end
     end
